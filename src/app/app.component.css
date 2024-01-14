@@ -1,0 +1,19 @@
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.link:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,32 @@
+<!--Visitors Table-->
+<h1>Visitors Table</h1>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">VisitorID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Remarks</th>
+        <th scope="col">ManagerID</th>
+        <th scope="col">Appointment date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visitor of visitors">
+        <th scope="row">{{ visitor.visitorId }}</th>
+        <td>{{ visitor.firstName }}</td>
+        <td>{{ visitor.lastName }}</td>
+        <td>{{ visitor.address }}</td>
+        <td>{{ visitor.phone }}</td>
+        <td>{{ visitor.gender }}</td>
+        <td>{{ visitor.remarks }}</td>
+        <td>{{ visitor.managerId }}</td>
+        <td>{{ visitor.date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

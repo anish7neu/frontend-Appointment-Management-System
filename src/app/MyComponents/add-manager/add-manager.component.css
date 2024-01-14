@@ -1,0 +1,61 @@
+.main-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#addManagerForm {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#managerId,
+#firstName,
+#lastName,
+#address,
+#phone {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.radio-container {
+  margin-bottom: 10px;
+}
+
+.radio-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.radio-label {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.gender-radio {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
