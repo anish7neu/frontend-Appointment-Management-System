@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddManagerComponent } from './MyComponents/add-manager/add-manager.component';
 import { AddVisitorComponent } from './MyComponents/add-visitor/add-visitor.component';
 import { MainTableComponent } from './MyComponents/managers-table/main-table.component';
+import { VisitorsOfManagerComponent } from './MyComponents/visitors-of-manager/visitors-of-manager.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     component: MainTableComponent,
     path: '',
+  },
+  {
+    component: VisitorsOfManagerComponent,
+    path: ':id/Visitors',
   },
 ];
 

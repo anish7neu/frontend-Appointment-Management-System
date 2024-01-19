@@ -19,7 +19,13 @@ export class MainTableComponent implements OnInit {
       .subscribe((data) => (this.managers = data));
   }
 
+  //New apppointment buton
   btnClick(id: number) {
     this.router.navigate([`addVisitor/${id}`]);
+  }
+
+  //View visitos
+  viewVisitors(id: number) {
+    this.router.navigate([`${id}/Visitors`]);
   }
 }

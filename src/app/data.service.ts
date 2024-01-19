@@ -10,6 +10,7 @@ import { Visitor } from '../app/model/visitor';
 export class DataService {
   urlManager: string = 'https://localhost:7267/api/Managers';
   urlVisitor: string = 'https://localhost:7267/api/Visitors';
+
   constructor(private http: HttpClient) {}
 
   //API call methods for managers
@@ -17,8 +18,8 @@ export class DataService {
     return this.http.get<Manager[]>(this.urlManager);
   }
 
-  getManagerDataById(id: number) {
-    return this.http.get(`${this.urlManager}/${id}`);
+  getManagerDataById(id: number): Observable<Manager> {
+    return this.http.get<Manager>(`${this.urlManager}/${id}`);
   }
 
   deleteManagerById(id: number) {
@@ -34,8 +35,8 @@ export class DataService {
     return this.http.get<Visitor[]>(this.urlVisitor);
   }
 
-  getVisitorDataById(id: number) {
-    return this.http.get(`${this.urlVisitor}/${id}`);
+  getVisitorDataById(id: number): Observable<Visitor> {
+    return this.http.get<Visitor>(`${this.urlVisitor}/${id}`);
   }
 
   deleteVisitrById(id: number) {
@@ -43,6 +44,11 @@ export class DataService {
   }
 
   addVisitorData(data: Visitor) {
-    return this.http.post<Visitor>(this.urlVisitor, data);
+    return this.http.post<any>(this.urlVisitor, data);
+  }
+
+  //Visitors of specific manager
+  visitorsOfManager(id: number) {
+    return this.http.get<Visitor[]>(`${this.urlManager}/${id}/Visitors`);
   }
 }

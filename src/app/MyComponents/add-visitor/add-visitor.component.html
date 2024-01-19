@@ -1,13 +1,7 @@
 <div class="main-container">
   <form [formGroup]="addVisitorForm" (ngSubmit)="onVisitorSubmit()">
-    <label for="visitorID">Visitor Id:</label>
-    <input
-      min="0"
-      type="number"
-      id="visitorId"
-      formControlName="visitorId"
-      value="visitorId"
-    />
+    <!-- <label for="visitorId">Visitor Id:</label>
+    <input min="0" type="number" id="id" formControlName="id" value="id" /> -->
 
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" formControlName="firstName" value="" />
@@ -79,7 +73,13 @@
       </div>
       <div>
         <label for="date">Date</label>
-        <input type="date" id="date" formControlName="date" value="" />
+        <input
+          type="date"
+          id="date"
+          [min]="newdate()"
+          formControlName="date"
+          value=""
+        />
       </div>
 
       <div>

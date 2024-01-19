@@ -10,6 +10,7 @@ import { MainTableComponent } from './MyComponents/managers-table/main-table.com
 import { HttpClientModule } from '@angular/common/http';
 import { VisitorTableComponent } from './MyComponents/visitors-table/visitor-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VisitorsOfManagerComponent } from './MyComponents/visitors-of-manager/visitors-of-manager.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddVisitorComponent,
     MainTableComponent,
     VisitorTableComponent,
+    VisitorsOfManagerComponent,
   ],
   imports: [
     BrowserModule,

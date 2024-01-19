@@ -11,7 +11,7 @@ import { Visitor } from 'src/app/model/visitor';
 })
 export class AddVisitorComponent implements OnInit {
   addVisitorForm = this.formBuilder.group({
-    visitorId: 0,
+    id: 0,
     firstName: '',
     lastName: '',
     address: '',
@@ -27,6 +27,7 @@ export class AddVisitorComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute
   ) {}
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((data) => {
       if (data['id']) {
@@ -40,11 +41,17 @@ export class AddVisitorComponent implements OnInit {
       .addVisitorData(this.addVisitorForm.value as Visitor)
       .subscribe((data) => {
         if (data) {
-          console.warn('Added Successfully');
+          console.log('Added Successfully');
           this.addVisitorForm.reset();
         } else {
           alert('Error Adding Manager');
         }
       });
+  }
+
+  newdate() {
+    let currentDate = new Date();
+    const formattedDate = currentDate.toISOString().split('T')[0];
+    return formattedDate;
   }
 }

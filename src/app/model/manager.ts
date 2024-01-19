@@ -1,5 +1,5 @@
 export interface Manager {
-  managerId: number;
+  id: number;
   firstName: string;
   lastName: string;
   address: string;
