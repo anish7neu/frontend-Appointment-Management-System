@@ -3,21 +3,47 @@
     <!-- <label for="visitorId">Visitor Id:</label>
     <input min="0" type="number" id="id" formControlName="id" value="id" /> -->
 
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" formControlName="firstName" value="" />
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName" value="" />
+      <label
+        class="error-text"
+        *ngIf="firstName && firstName.invalid && firstName.touched"
+        >Firstname must be less than length 20.</label
+      >
+    </div>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" formControlName="lastName" value="" />
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName" value="" />
+      <label
+        class="error-text"
+        *ngIf="lastName && lastName.invalid && lastName.touched"
+        >Lastname must be less than length 20.</label
+      >
+    </div>
 
-    <label for="address">Address:</label>
-    <input type="text" id="address" formControlName="address" value="" />
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" formControlName="address" value="" />
+      <label
+        class="error-text"
+        *ngIf="address && address.invalid && address.touched"
+        >Address must be less than length 30.</label
+      >
+    </div>
 
-    <label for="phone">Phone Number:</label>
-    <input type="text" id="phone" formControlName="phone" value="" />
+    <div>
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" formControlName="phone" value="" />
+      <label class="error-text" *ngIf="phone && phone.invalid && phone.touched"
+        >Phone number must be of 10 digits.</label
+      >
+    </div>
 
+    <br />
     <!-- Radio-input for gender -->
-    <label for="gender">Gender:</label>
-
+    <label>Gender:</label>
     <div class="radio-conatiner">
       <div class="radio-div">
         <input
@@ -27,7 +53,7 @@
           id="male"
           value="male"
         />
-        <label class="radio-label" for="female">Male</label>
+        <label class="error-text" class="radio-label" for="female">Male</label>
       </div>
 
       <div class="radio-div">
@@ -51,16 +77,27 @@
         />
         <label class="radio-label" for="other">Other</label>
       </div>
+      <label
+        class="error-text"
+        *ngIf="gender && gender.invalid && gender.touched"
+        >Gender must be be selected.</label
+      >
 
       <div>
-        <label for="managerID">Manager Id:</label>
+        <label for="managerId">Manager Id:</label>
         <input
+          [min]="1"
           type="number"
           id="managerId"
           formControlName="managerId"
           value=""
         />
       </div>
+      <label
+        class="error-text"
+        *ngIf="managerId && managerId.invalid && managerId.touched"
+        >Select valid Manager Id.</label
+      >
 
       <div>
         <label for="remarks">Remarks</label>
@@ -70,6 +107,11 @@
           formControlName="remarks"
           value=""
         ></textarea>
+        <label
+          class="error-text"
+          *ngIf="remarks && remarks.invalid && remarks.touched"
+          >Write your remarks.</label
+        >
       </div>
       <div>
         <label for="date">Date</label>
@@ -80,10 +122,19 @@
           formControlName="date"
           value=""
         />
+        <label class="error-text" *ngIf="date && date.invalid && date.touched"
+          >Select date of appointment.</label
+        >
       </div>
 
       <div>
-        <button class="button" type="submit">Submit</button>
+        <button
+          [disabled]="addVisitorForm.invalid"
+          class="button"
+          type="submit"
+        >
+          Submit
+        </button>
       </div>
     </div>
   </form>

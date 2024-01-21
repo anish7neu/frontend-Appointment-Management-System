@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DataService } from 'src/app/data.service';
 import { Manager } from 'src/app/model/manager';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-manager',
@@ -11,16 +12,29 @@ import { Manager } from 'src/app/model/manager';
 export class AddManagerComponent {
   addManagerForm = this.formBuilder.group({
     managerId: 0,
-    firstName: '',
-    lastName: '',
-    address: '',
-    phone: '',
-    gender: '',
+    firstName: new FormControl('', [
+      Validators.maxLength(20),
+      Validators.required,
+    ]),
+    lastName: new FormControl('', [
+      Validators.maxLength(20),
+      Validators.required,
+    ]),
+    address: new FormControl('', [
+      Validators.maxLength(30),
+      Validators.required,
+    ]),
+    phone: new FormControl('', [
+      Validators.pattern('^[0-9]{10}$'),
+      Validators.required,
+    ]),
+    gender: new FormControl('', [Validators.required]),
   });
 
   constructor(
     private dataService: DataService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   onSubmit(): void {
@@ -34,5 +48,23 @@ export class AddManagerComponent {
           alert('Error Adding Manager');
         }
       });
+    this.router.navigate(['']);
+  }
+
+  //Form validators text
+  get firstName() {
+    return this.addManagerForm.get('firstName');
+  }
+  get lastName() {
+    return this.addManagerForm.get('lastName');
+  }
+  get address() {
+    return this.addManagerForm.get('address');
+  }
+  get phone() {
+    return this.addManagerForm.get('phone');
+  }
+  get gender() {
+    return this.addManagerForm.get('gender');
   }
 }

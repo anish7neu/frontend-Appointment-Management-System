@@ -11,24 +11,43 @@
 
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" formControlName="firstName" value="" />
+    <label
+      class="error-text"
+      *ngIf="firstName && firstName.invalid && firstName.touched"
+      >Firstname must be less than length 20.</label
+    >
 
     <label for="lastName">Last Name:</label>
     <input type="text" id="lastName" formControlName="lastName" value="" />
+    <label
+      class="error-text"
+      *ngIf="lastName && lastName.invalid && lastName.touched"
+      >Lastname must be less than length 20.</label
+    >
 
     <label for="address">Address:</label>
     <input type="text" id="address" formControlName="address" value="" />
+    <label
+      class="error-text"
+      *ngIf="address && address.invalid && address.touched"
+      >Address must be less than length 30.</label
+    >
 
     <label for="phone">Phone Number:</label>
     <input type="text" id="phone" formControlName="phone" value="" />
+    <label class="error-text" *ngIf="phone && phone.invalid && phone.touched"
+      >Phone number must be valid and 10 digits.</label
+    >
+    <br />
 
     <!-- Radio-input for gender -->
-    <label for="gender">Gender:</label>
+    <label>Gender:</label>
 
     <div class="radio-container">
       <div class="radio-div">
         <input
-          class="gender-radio"
           type="radio"
+          class="gender-radio"
           formControlName="gender"
           id="male"
           value="male"
@@ -56,9 +75,16 @@
           value="other"
         />
         <label class="radio-label" for="other">Other</label>
+        <label
+          class="error-text"
+          *ngIf="gender && gender.invalid && gender.touched"
+          >Gender must be selected.</label
+        >
       </div>
     </div>
 
-    <button class="button" type="submit">Submit</button>
+    <button [disabled]="addManagerForm.invalid" class="button" type="submit">
+      Submit
+    </button>
   </form>
 </div>
