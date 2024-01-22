@@ -7,6 +7,10 @@ import { VisitorsOfManagerComponent } from './MyComponents/visitors-of-manager/v
 
 const routes: Routes = [
   {
+    component: MainTableComponent,
+    path: '',
+  },
+  {
     component: AddManagerComponent,
     path: 'addManager',
   },
@@ -17,11 +21,6 @@ const routes: Routes = [
   {
     component: AddVisitorComponent,
     path: 'addVisitor',
-  },
-
-  {
-    component: MainTableComponent,
-    path: '',
   },
   {
     component: VisitorsOfManagerComponent,

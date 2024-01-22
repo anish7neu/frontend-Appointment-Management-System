@@ -62,11 +62,11 @@ export class AddVisitorComponent implements OnInit {
         if (data) {
           console.log('Added Successfully');
           this.addVisitorForm.reset();
+          this.router.navigate(['']);
         } else {
           alert('Error Adding Manager');
         }
       });
-    this.router.navigate(['']);
   }
 
   newdate() {

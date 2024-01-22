@@ -44,11 +44,11 @@ export class AddManagerComponent {
         if (data) {
           console.warn('Added Successfully');
           this.addManagerForm.reset();
+          this.router.navigate(['']);
         } else {
           alert('Error Adding Manager');
         }
       });
-    this.router.navigate(['']);
   }
 
   //Form validators text
